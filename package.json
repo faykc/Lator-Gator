@@ -1,0 +1,15 @@
+{
+  "name": "lator-gator",
+  "version": "1.0.0",
+  "description": "Interactive Event Bot for Slack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Muhammad Fayk Chaudhry",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^2.0.1"
+  }
+}
