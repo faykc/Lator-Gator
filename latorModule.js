@@ -1,6 +1,6 @@
 const latorGator = () => ({
-    "type": "modal",
-    "callback_id": 'latorSubmit',
+	"type": "modal",
+    "callback_id": "latorSubmit",
 	"title": {
 		"type": "plain_text",
 		"text": "Lator Gator",
@@ -49,67 +49,47 @@ const latorGator = () => ({
 			},
 			"label": {
 				"type": "plain_text",
-				"text": "Start Date",
+				"text": "What day?",
 				"emoji": true
 			}
 		},
-        {
-    "type": "section",
-    "block_id": "section678",
-    "text": {
-      "type": "mrkdwn",
-      "text": "Pick expected duration"
-    },
-    "accessory": {
-      "action_id": "text1234",
-      "type": "multi_static_select",
-      "placeholder": {
-        "type": "plain_text",
-        "text": "Select a duration"
-      },
-      "options": [
-        {
-          "text": {
-            "type": "plain_text",
-            "text": "*this is plain_text text*"
-          },
-          "value":"0.5 hours"
-        },
-        {
-          "text": {
-            "type": "plain_text",
-            "text": "*this is plain_text text*"
-          },
-          "value": "1 hour"
-        },
-        {
-          "text": {
-            "type": "plain_text",
-            "text": "*this is plain_text text*"
-          },
-          "value": "1.5 hours"
-        }
-      ]
-    }
-  },
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "How many hours?",
+				"emoji": true
+			}
+		},
 		{
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "ml_input",
-				"multiline": true,
+				"multiline": true
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Give a short description!",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "multi_channels_select",
 				"placeholder": {
 					"type": "plain_text",
-					"text": "Discussion over strategy A v B"
+					"emoji": true,
+					"text": "Select channels"
 				}
 			},
 			"label": {
 				"type": "plain_text",
-				"text": "Give some more details!"
-			},
-			"hint": {
-				"type": "plain_text",
-				"text": "Hint text"
+				"text": "Where do you want to post this?",
+				"emoji": true
 			}
 		}
 	]
