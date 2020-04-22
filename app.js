@@ -28,8 +28,8 @@ app.command('/lator', async ({ ack, body, context }) => {
 app.view('latorSubmit', async ({ ack, body, view, context }) => {
   // Acknowledge the view_submission event
   await ack();
-  console.log(body);
-  console.log(context);
+  console.log(body.view.state.values);
+  //console.log(context.view.state.values);
   // Message the user
   try {
     await app.client.chat.postMessage({

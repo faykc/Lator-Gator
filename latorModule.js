@@ -18,10 +18,11 @@ const latorGator = () => ({
 	},
 	"blocks": [
 		{
-			"type": "input",
+            "type": "input",
+            "block_id": "title_id",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "sl_input",
+				"action_id": "title_action",
 				"placeholder": {
 					"type": "plain_text",
 					"text": "E.g Marketing Strategy Meeting"
@@ -37,9 +38,11 @@ const latorGator = () => ({
 			}
 		},
 		{
-			"type": "input",
+            "type": "input",
+            "block_id": "datepicker_id",
 			"element": {
-				"type": "datepicker",
+                "type": "datepicker",
+                "action_id": "datepick_action",
 				"initial_date": "1990-04-28",
 				"placeholder": {
 					"type": "plain_text",
@@ -54,8 +57,10 @@ const latorGator = () => ({
 			}
 		},
 		{
-			"type": "input",
+            "type": "input",
+            "block_id": "hours_id",
 			"element": {
+                "action_id": "hours_action",
 				"type": "plain_text_input"
 			},
 			"label": {
@@ -65,8 +70,10 @@ const latorGator = () => ({
 			}
 		},
 		{
-			"type": "input",
+            "type": "input",
+            "block_id": "description_id",
 			"element": {
+                "action_id": "description_action",
 				"type": "plain_text_input",
 				"multiline": true
 			},
@@ -77,8 +84,10 @@ const latorGator = () => ({
 			}
 		},
 		{
-			"type": "input",
+            "type": "input",
+            "block_id": "channelselect_id",
 			"element": {
+                "action_id": "channelselect_action",
 				"type": "multi_channels_select",
 				"placeholder": {
 					"type": "plain_text",
