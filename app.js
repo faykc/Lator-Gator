@@ -1,7 +1,6 @@
 const { App } = require('@slack/bolt');
 const {latorGator} = require('./latorModule');
 
-// Initializes your app with your bot token and signing secret
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET
@@ -23,14 +22,10 @@ app.command('/lator', async ({ ack, body, context }) => {
   }
 });
 
-
-// Handle a view_submission event
+// Handle submission of the Lator Gator Modal
 app.view('latorSubmit', async ({ ack, body, view, context }) => {
-  // Acknowledge the view_submission event
   await ack();
   console.log(body.view.state.values);
-  //console.log(context.view.state.values);
-  // Message the user
   try {
     await app.client.chat.postMessage({
       token: context.botToken,
@@ -43,11 +38,9 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
   }
 });
 
-
 (async () => {
-  // Start your app
   await app.start(3000);
-  console.log(`⚡️ Bolt app is running! on `);
+  console.log(`⚡️ Bolt app is running!`);
 })();
 
 
