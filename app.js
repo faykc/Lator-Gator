@@ -59,6 +59,26 @@ app.command('/lator', async ({ ack, body, context }) => {
 });
 
 
+// Handle a view_submission event
+app.view('latorSubmit', async ({ ack, body, view, context }) => {
+  // Acknowledge the view_submission event
+  await ack();
+  console.log(body);
+  console.log(context);
+  // Message the user
+  try {
+    await app.client.chat.postMessage({
+      token: context.botToken,
+      channel: 'C01206G93AS',
+      text: "Hello"
+    });
+  }
+  catch (error) {
+    console.error(error);
+  }
+});
+
+
 (async () => {
   // Start your app
   await app.start(3000);

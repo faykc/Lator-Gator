@@ -1,5 +1,6 @@
 const latorGator = () => ({
-	"type": "modal",
+    "type": "modal",
+    "callback_id": 'latorSubmit',
 	"title": {
 		"type": "plain_text",
 		"text": "Lator Gator",
