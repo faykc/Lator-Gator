@@ -1,4 +1,4 @@
-module.exports = () => ({
+const latorGator = () => ({
 	"type": "modal",
 	"title": {
 		"type": "plain_text",
@@ -113,3 +113,5 @@ module.exports = () => ({
 		}
 	]
 });
+
+module.exports = {latorGator};

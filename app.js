@@ -1,11 +1,11 @@
 const { App } = require('@slack/bolt');
+const {latorGator} = require('./latorModule');
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
-
 
 // This will listen for messages with hello written to them
 app.message('hello', async ({ message, say }) => {
@@ -34,6 +34,28 @@ app.action('button_click', async ({ body, ack, say }) => {
   // Acknowledge the action
   await ack();
   await say(`<@${body.user.id}> clicked the button`);
+});
+
+app.action('button_click', async ({ body, ack, say }) => {
+  // Acknowledge the action
+  await ack();
+  await say(`<@${body.user.id}> clicked the button`);
+});
+
+// Listens for the initial call to the Lator Gator
+app.command('/lator', async ({ ack, body, context }) => {
+  await ack();
+  try {
+    const result = await app.client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: latorGator()
+    });
+    console.log(result);
+  }
+  catch (error) {
+    console.error(error);
+  }
 });
 
 
