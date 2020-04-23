@@ -42,6 +42,19 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
   }
 });
 
+app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => {
+  await ack();
+  console.log(context);
+  const stuff = {user:"u", date:"d", eventName:"e", duration:"de", description:"desc"};
+  const updatedResponse = body.message.blocks;
+  const confirmation = {
+    "blocks": latorMessage({... stuff}),
+    "text": "Thanks for RSVPing! See you Lator Gator!",
+    "replace_original": "true"
+  };
+  await respond(confirmation);
+});
+
 (async () => {
   await app.start(process.env.PORT || 3000);
   console.log(`⚡️ Bolt app is running!`);
