@@ -46,10 +46,11 @@ app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => 
   await ack();
   console.log(context);
   const stuff = {user:"u", date:"d", eventName:"e", duration:"de", description:"desc"};
-  const updatedResponse = body.message.blocks;
+  // UpdatedResponse has the block for the individuals who are signing up for Lator!
+  const updatedResponse = (body.message.blocks)[9];
+  console.log(updatedResponse);
   const confirmation = {
     "blocks": latorMessage({... stuff}),
-    "text": "Thanks for RSVPing! See you Lator Gator!",
     "replace_original": "true"
   };
   await respond(confirmation);
