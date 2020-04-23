@@ -1,5 +1,7 @@
 const { App } = require('@slack/bolt');
 const {latorGator} = require('./latorModule');
+const {latorMessage} = require('./latorMessage');
+const {generateDynamicLator} = require("./utils");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -25,12 +27,11 @@ app.command('/lator', async ({ ack, body, context }) => {
 // Handle submission of the Lator Gator Modal
 app.view('latorSubmit', async ({ ack, body, view, context }) => {
   await ack();
-  console.log(body.view.state.values);
   try {
     await app.client.chat.postMessage({
       token: context.botToken,
       channel: 'C01206G93AS',
-      text: "Hello"
+      blocks: latorMessage({... generateDynamicLator(body)})
     });
   }
   catch (error) {

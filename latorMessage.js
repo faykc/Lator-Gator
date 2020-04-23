@@ -1,5 +1,4 @@
-const latorMessage = () => ({
-	"blocks": [
+const latorMessage = ({user, date, eventName, duration, description}) => ([
 		{
 			"type": "section",
 			"text": {
@@ -11,7 +10,7 @@ const latorMessage = () => ({
 			"type": "context",
 			"elements": [
 				{
-					"text": "*November 12, 2019*  |  Lator by @username",
+					"text": `*Lator by ${user}*`,
 					"type": "mrkdwn"
 				}
 			]
@@ -31,7 +30,7 @@ const latorMessage = () => ({
 			"block_id": "rsvp_block_id",
 			"text": {
 				"type": "mrkdwn",
-				"text": "`MM/DD/YY` *Name of Lator*  -  _ Time Duration_"
+				"text": `${date}  *${eventName}*  - _ ${duration} hours_`
 			},
 			"accessory": {
 				"type": "button",
@@ -50,7 +49,7 @@ const latorMessage = () => ({
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": ":wave: *Enter Description* of the entire event right here, it can be short or long, or whatever!",
+				"text": `:wave: ${description}`,
 				"verbatim": false
 			}
 		},
@@ -66,7 +65,6 @@ const latorMessage = () => ({
 				}
 			]
 		}
-	]
-});
+	]);
 
 module.exports = {latorMessage};
