@@ -8,6 +8,13 @@ const generateDynamicLator = (body) => {
         duration: state.hours_id.hours_action.value,
         description: state.description_id.description_action.value
       });
-} 
+}
 
-module.exports = {generateDynamicLator};
+// Updates the Lator Blocks with the addition of the usernames of the Gators
+const updateLatorBlocks = (user, blocks) => {
+    //const updatedResponse = (body.message.blocks)[9];
+    (blocks[9]).text.text += ` @${user} ,`;
+    return blocks;
+};
+
+module.exports = {generateDynamicLator, updateLatorBlocks};

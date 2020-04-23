@@ -1,7 +1,7 @@
 const { App } = require('@slack/bolt');
 const {latorGator} = require('./latorModule');
 const {latorMessage} = require('./latorMessage');
-const {generateDynamicLator} = require("./utils");
+const {generateDynamicLator, updateLatorBlocks} = require("./utils");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -45,10 +45,13 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
 app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => {
   await ack();
   console.log(context);
+
   const stuff = {user:"u", date:"d", eventName:"e", duration:"de", description:"desc"};
-  // UpdatedResponse has the block for the individuals who are signing up for Lator!
-  const updatedResponse = (body.message.blocks)[9];
-  console.log(updatedResponse);
+
+  // WIP:
+  // This is the updatedBlocks and such with attachement of the user who RSVP'd... 
+  const updatedBlocks = updateLatorBlocks(body.user.username, body.message.blocks);
+
   const confirmation = {
     "blocks": latorMessage({... stuff}),
     "replace_original": "true"
