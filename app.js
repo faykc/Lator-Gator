@@ -1,7 +1,7 @@
 const { App } = require('@slack/bolt');
 const {latorGator} = require('./latorModule');
 const {latorMessage} = require('./latorMessage');
-const {generateDynamicLator} = require("./utils");
+const {generateDynamicLator, updateLatorBlocks} = require("./utils");
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -40,6 +40,15 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
   catch (error) {
     console.error(error);
   }
+});
+
+app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => {
+  await ack();
+  const confirmation = {
+    "blocks": updateLatorBlocks(body.user.username, body.message.blocks),
+    "replace_original": "true"
+  };
+  await respond(confirmation);
 });
 
 (async () => {
