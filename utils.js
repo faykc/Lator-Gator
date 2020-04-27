@@ -20,6 +20,7 @@ const updateLatorBlocks = (user, blocks) => {
     return blocks;
 };
 
+// Determines the data and time from the message text
 const determineAttributes = async (messageText) => {
     const messageArray = messageText.split(" ");
     const date = messageArray[0];
