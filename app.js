@@ -31,7 +31,7 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
   const dynamicLator = generateDynamicLator(body);
   await generateEvent({
     date:dynamicLator.date, 
-    start: "6:30", 
+    start: dynamicLator.startTime, 
     duration: dynamicLator.duration, 
     title: dynamicLator.eventName, 
     description: dynamicLator.description

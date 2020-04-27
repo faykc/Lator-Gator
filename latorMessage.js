@@ -1,4 +1,4 @@
-const latorMessage = ({user, date, eventName, duration, description, lators}) => ([
+const latorMessage = ({user, date, startTime, eventName, duration, description}) => ([
 	{
 		"type": "section",
 		"text": {
@@ -30,7 +30,7 @@ const latorMessage = ({user, date, eventName, duration, description, lators}) =>
 		"block_id": "rsvp_block_id",
 		"text": {
 			"type": "mrkdwn",
-			"text": `${date}  *${eventName}*  - _ ${duration} hours_`
+			"text": `${date}  *${eventName}* - ${startTime} - _ ${duration} hours_`
 		},
 		"accessory": {
 			"type": "button",
@@ -68,7 +68,7 @@ const latorMessage = ({user, date, eventName, duration, description, lators}) =>
 		"block_id": "lators_block_id",
 		"text": {
 			"type": "mrkdwn",
-			"text": `Currently, we are seeing ${lators ? lators : "no one"} lator!`
+			"text": `Currently, we are seeing no one lator!`
 		}
 	},
 	{

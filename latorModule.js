@@ -1,6 +1,6 @@
 const latorGator = () => ({
 	"type": "modal",
-    "callback_id": "latorSubmit",
+	"callback_id": "latorSubmit",
 	"title": {
 		"type": "plain_text",
 		"text": "Lator Gator",
@@ -18,8 +18,8 @@ const latorGator = () => ({
 	},
 	"blocks": [
 		{
-            "type": "input",
-            "block_id": "title_id",
+			"type": "input",
+			"block_id": "title_id",
 			"element": {
 				"type": "plain_text_input",
 				"action_id": "title_action",
@@ -38,12 +38,12 @@ const latorGator = () => ({
 			}
 		},
 		{
-            "type": "input",
-            "block_id": "datepicker_id",
+			"type": "input",
+			"block_id": "datepicker_id",
 			"element": {
-                "type": "datepicker",
-                "action_id": "datepick_action",
-				"initial_date": "1990-04-28",
+				"type": "datepicker",
+				"action_id": "datepick_action",
+				"initial_date": "2020-01-01",
 				"placeholder": {
 					"type": "plain_text",
 					"emoji": true,
@@ -56,11 +56,24 @@ const latorGator = () => ({
 				"emoji": true
 			}
 		},
-		{
-            "type": "input",
-            "block_id": "hours_id",
+        {
+			"type": "input",
+			"block_id": "start_time_id",
 			"element": {
-                "action_id": "hours_action",
+				"action_id": "start_time_action",
+				"type": "plain_text_input"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Whats the start time? (24 Hour Format e.g 18:30)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "hours_id",
+			"element": {
+				"action_id": "hours_action",
 				"type": "plain_text_input"
 			},
 			"label": {
@@ -70,10 +83,10 @@ const latorGator = () => ({
 			}
 		},
 		{
-            "type": "input",
-            "block_id": "description_id",
+			"type": "input",
+			"block_id": "description_id",
 			"element": {
-                "action_id": "description_action",
+				"action_id": "description_action",
 				"type": "plain_text_input",
 				"multiline": true
 			},
@@ -84,10 +97,10 @@ const latorGator = () => ({
 			}
 		},
 		{
-            "type": "input",
-            "block_id": "channelselect_id",
+			"type": "input",
+			"block_id": "channelselect_id",
 			"element": {
-                "action_id": "channelselect_action",
+				"action_id": "channelselect_action",
 				"type": "multi_channels_select",
 				"placeholder": {
 					"type": "plain_text",
