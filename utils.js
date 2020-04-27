@@ -20,4 +20,16 @@ const updateLatorBlocks = (user, blocks) => {
     return blocks;
 };
 
-module.exports = {generateDynamicLator, updateLatorBlocks};
+const determineAttributes = async (messageText) => {
+    const messageArray = messageText.split(" ");
+    const date = messageArray[0];
+    let returnObject = {date: date ? date : "nd", time: "1"};
+    await messageArray.forEach((element, index) => {
+      if (element === "hours_") {
+        returnObject = {date, time: messageArray[index - 1] ? messageArray[index - 1] : 1};
+      }
+    });
+    return returnObject;
+};
+
+module.exports = {generateDynamicLator, updateLatorBlocks, determineAttributes};
