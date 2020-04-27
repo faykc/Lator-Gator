@@ -1,4 +1,4 @@
-const latorMessage = ({user, date, eventName, duration, description}) => ([
+const latorMessage = ({user, date, eventName, duration, description, lators}) => ([
 	{
 		"type": "section",
 		"text": {
@@ -68,7 +68,7 @@ const latorMessage = ({user, date, eventName, duration, description}) => ([
 		"block_id": "lators_block_id",
 		"text": {
 			"type": "mrkdwn",
-			"text": "Currently, we are seeing no one Lator!"
+			"text": `Currently, we are seeing ${lators ? lators : "no one"} lator!`
 		}
 	},
 	{

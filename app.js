@@ -44,16 +44,8 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
 
 app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => {
   await ack();
-  console.log(context);
-
-  const stuff = {user:"u", date:"d", eventName:"e", duration:"de", description:"desc"};
-
-  // WIP:
-  // This is the updatedBlocks and such with attachement of the user who RSVP'd... 
-  const updatedBlocks = updateLatorBlocks(body.user.username, body.message.blocks);
-
   const confirmation = {
-    "blocks": latorMessage({... stuff}),
+    "blocks": updateLatorBlocks(body.user.username, body.message.blocks),
     "replace_original": "true"
   };
   await respond(confirmation);

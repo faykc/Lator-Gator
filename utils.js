@@ -12,8 +12,11 @@ const generateDynamicLator = (body) => {
 
 // Updates the Lator Blocks with the addition of the usernames of the Gators
 const updateLatorBlocks = (user, blocks) => {
-    //const updatedResponse = (body.message.blocks)[9];
-    (blocks[9]).text.text += ` @${user} ,`;
+    if (((blocks[9]).text.text) === "Currently, we are seeing no one lator!") {
+        (blocks[9]).text.text = `Currently, we will be seeing  @${user} lator`
+    } else {
+        (blocks[9]).text.text = ((blocks[9]).text.text).replace("lator", `, @${user} lator`);
+    }
     return blocks;
 };
 
