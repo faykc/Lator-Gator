@@ -1,7 +1,8 @@
 const { App } = require('@slack/bolt');
 const {latorGator} = require('./latorModule');
 const {latorMessage} = require('./latorMessage');
-const {generateDynamicLator, updateLatorBlocks, determineAttributes} = require("./utils");
+const {generateDynamicLator, updateLatorBlocks, generateEvent} = require("./utils");
+const { createReadStream } = require('fs');
 
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -28,12 +29,25 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
   await ack();
   const channels = body.view.state.values.channelselect_id.channelselect_action.selected_channels;
   const dynamicLator = generateDynamicLator(body);
+  await generateEvent({
+    date:dynamicLator.date, 
+    start: "6:30", 
+    duration: dynamicLator.duration, 
+    title: dynamicLator.eventName, 
+    description: dynamicLator.description
+  });
   try {
     await Promise.all(channels.map(async (channelId) => {
       await app.client.chat.postMessage({
         token: context.botToken,
         channel: `${channelId}`,
-        blocks: latorMessage({... dynamicLator})
+        blocks: latorMessage({... dynamicLator}),
+      });
+      await app.client.files.upload({
+        token: context.botToken,
+        channels: `${channelId}`,
+        initial_comment: "Download the lator below! :smile:",
+        file: createReadStream(`${dynamicLator.eventName}.ics`)
       });
     }));
   }
@@ -44,9 +58,6 @@ app.view('latorSubmit', async ({ ack, body, view, context }) => {
 
 app.action('rsvp_action_id', async ({ action, ack, respond, context, body }) => {
   await ack();
-  
-  console.log(await determineAttributes(body.message.blocks[4].text.text));
-
   const confirmation = {
     "blocks": updateLatorBlocks(body.user.username, body.message.blocks),
     "replace_original": "true"

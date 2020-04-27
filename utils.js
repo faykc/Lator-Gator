@@ -1,3 +1,6 @@
+const { writeFileSync } = require('fs');
+const ics = require('ics');
+
 // Generates date for dynamic Lator Message
 const generateDynamicLator = (body) => {
     const state = body.view.state.values;
@@ -20,17 +23,20 @@ const updateLatorBlocks = (user, blocks) => {
     return blocks;
 };
 
-// Determines the data and time from the message text
-const determineAttributes = async (messageText) => {
-    const messageArray = messageText.split(" ");
-    const date = messageArray[0];
-    let returnObject = {date: date ? date : "nd", time: "1"};
-    await messageArray.forEach((element, index) => {
-      if (element === "hours_") {
-        returnObject = {date, time: messageArray[index - 1] ? messageArray[index - 1] : 1};
-      }
-    });
-    return returnObject;
+const generateEvent = async ({date, start, duration, title, description}) => {
+    const splitDate = date.split("-");
+    ics.createEvent({
+        title: `${title}`,
+        description: `${description}`,
+        busyStatus: 'BUSY',
+        start: [splitDate[0], splitDate[1], splitDate[2], 6, 30],
+        duration: { hours: duration }
+      }, (error, value) => {
+        if (error) {
+          console.log(error)
+        }
+        writeFileSync(`${__dirname}/${title}.ics`, value);
+      });
 };
 
-module.exports = {generateDynamicLator, updateLatorBlocks, determineAttributes};
+module.exports = {generateDynamicLator, updateLatorBlocks, generateEvent};
