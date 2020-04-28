@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/faykc/Lator-Gator/tree/feature/ReadMEUpdate">
+    <img src="LatorPNG.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Lator Gator</h3>
