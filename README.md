@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/faykc/Lator-Gator/tree/feature/ReadMEUpdate">
-    <img src="LatorPNG.png" alt="Logo" width="120" height="120">
+  <a href="https://github.com/faykc/Lator-Gator">
+    <img src="Images/LatorPNG.png" alt="Logo" width="120" height="120">
   </a>
 
   <h2 align="center">Lator Gator</h2>
@@ -27,10 +27,15 @@
 - [Table of Contents](#table-of-contents)
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
+- [Demo](#demo)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Slack Developer Setup](#slack-developer-setup)
+- [Detailed Demo](#detailed-demo)
+  - [Creating a Lator](#creating-a-lator)
+  - [Message & RSVP](#message--rsvp)
+  - [Calendar Event](#calendar-event)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -50,6 +55,9 @@ Lator Gator gives you the foundations of a working bot, allowing you to schedule
 * [Slack Bolt Framework](https://github.com/slackapi/bolt)
 * [Slack Web API](https://api.slack.com/web)
 * [Slack Events API](https://api.slack.com/events)
+
+## Demo
+![Entire Demo](Images/EntireDemo.gif)
 
 
 <!-- GETTING STARTED -->
@@ -91,6 +99,15 @@ In addition to this, Event Subscriptions must be turned on, with atleast the fol
 Furthermore, navigate to Slash Commands and add the following command, with your appropriate request URL:
 1. /lator
 
+## Detailed Demo
+### Creating a Lator
+![Creating Lator](Images/Modal.gif)
+
+### Message & RSVP
+![RSVP](Images/messageRSVP.gif)
+
+### Calendar Event
+![Calendar](Images/Calendar.gif)
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -124,16 +141,14 @@ Muhammad Fayk Chaudhry - [@Fayk_C](https://twitter.com/fayk_c?lang=en) - faykc12
 * [Thanks othneildrew for the README template!](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
 
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[issues-shield]: https://img.shields.io/github/issues/faykc/Lator-Gator
+[issues-url]: https://github.com/faykc/Lator-Gator/issues
+[license-shield]: https://img.shields.io/github/license/faykc/Lator-Gator
+[license-url]: https://github.com/faykc/Lator-Gator/blob/develop/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://ca.linkedin.com/in/faykchaudhry
+[product-screenshot]: Images/LatorPNG.png
 
 
 
