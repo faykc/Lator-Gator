@@ -5,16 +5,11 @@
     <img src="LatorPNG.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">Lator Gator</h3>
-
+  <h2 align="center">Lator Gator</h2>
   <p align="center">
     An Open Source Slack Eventbot And More! 
     <br />
-    <a href="https://github.com/faykc/Lator-Gator"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/faykc/Lator-Gator">View Demo</a>
-    ·
     <a href="https://github.com/faykc/Lator-Gator/issues">Report Bug</a>
     ·
     <a href="https://github.com/faykc/Lator-Gator/issues">Request Feature</a>
@@ -36,7 +31,6 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Slack Developer Setup](#slack-developer-setup)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -96,12 +90,6 @@ In addition to this, Event Subscriptions must be turned on, with atleast the fol
 
 Furthermore, navigate to Slash Commands and add the following command, with your appropriate request URL:
 1. /lator
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 
 <!-- CONTRIBUTING -->
